@@ -1,0 +1,23 @@
+{
+	"name": "DestinationDataset_nvu",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "logdatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "logID",
+				"type": "nchar",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "logTAb"
+		}
+	}
+}
