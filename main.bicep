@@ -1,14 +1,12 @@
-@maxLength(11)
-param storageAccountPrefix string = 'bicep'
-param location string = resourceGroup().location
-
-var sta = '${storageAccountPrefix}${uniqueString(subscription().id)}'
-
-resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: sta
-  location: location
-  kind: 'StorageV2'
-  sku: {
-    name: 'Standard_LRS'
-  }
-}
+name: Copy To Branches
+on:
+  workflow_dispatch:
+jobs:
+  copy-to-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Copy To Branches Action
+        uses: planetoftheweb/copy-to-branches@v1
